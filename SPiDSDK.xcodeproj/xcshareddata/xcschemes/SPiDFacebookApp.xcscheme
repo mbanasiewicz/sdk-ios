@@ -20,6 +20,20 @@
                ReferencedContainer = "container:SPiDSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "532B21CE16AD5737000DBA55"
+               BuildableName = "SPiDFacebookAppTests.octest"
+               BlueprintName = "SPiDFacebookAppTests"
+               ReferencedContainer = "container:SPiDSDK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

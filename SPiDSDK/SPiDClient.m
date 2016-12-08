@@ -130,7 +130,7 @@ static SPiDClient *sharedSPiDClientInstance = nil;
 }
 
 - (void)browserRedirectAuthorizationWithCompletionHandler:(void (^)(NSError *response))completionHandler {
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
     if (self.accessToken) { // we already have a access token
         SPiDDebugLog(@"Already logged in, aborting redirect");
         completionHandler(nil);
@@ -144,7 +144,7 @@ static SPiDClient *sharedSPiDClientInstance = nil;
 }
 
 - (void)browserRedirectSignupWithCompletionHandler:(void (^)(NSError *response))completionHandler {
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
     self.completionHandler = completionHandler;
     NSURL *requestURL = [self forgotPasswordURLWithQuery];
     SPiDDebugLog(@"Trying to authorize using browser redirect: %@", requestURL);
@@ -158,7 +158,7 @@ static SPiDClient *sharedSPiDClientInstance = nil;
 }
 
 - (void)browserRedirectForgotPassword {
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
     NSURL *requestURL = [self forgotPasswordURLWithQuery];
     SPiDDebugLog(@"Trying to authorize using browser redirect: %@", requestURL);
     [[UIApplication sharedApplication] openURL:requestURL];
@@ -166,7 +166,7 @@ static SPiDClient *sharedSPiDClientInstance = nil;
 }
 
 - (void)browserRedirectAccountSummary {
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
     NSURL *requestURL = [self accountSummaryURL];
 
     SPiDDebugLog(@"Trying to open account summary: %@", requestURL);
@@ -177,7 +177,7 @@ static SPiDClient *sharedSPiDClientInstance = nil;
 }
 
 - (void)browserRedirectLogoutWithCompletionHandler:(void (^)(NSError *response))completionHandler {
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
     self.completionHandler = completionHandler;
     NSURL *requestURL = [self logoutURLWithQuery];
     SPiDDebugLog(@"Trying to logout from SPiD");
