@@ -1,51 +1,51 @@
-//
-//  SPiDResponse.h
-//  SPiDSDK
-//
-//  Copyright (c) 2012 Schibsted Payment. All rights reserved.
-//
+  //
+  //  SPiDResponse.h
+  //  SPiDSDK
+  //
+  //  Copyright (c) 2012 Schibsted Payment. All rights reserved.
+  //
 
 #import <Foundation/Foundation.h>
 
 /**
  `SPiDResponse` is created for each response from SPiD made by a `SPiDRequest`
-
+ 
  It contains the message as both a object and as raw JSON.
-
+ 
  @warning Received should always check the error property upon receiving a response.
  */
 
 @interface SPiDResponse : NSObject
 
-///---------------------------------------------------------------------------------------
-/// @name Properties
-///---------------------------------------------------------------------------------------
+  ///---------------------------------------------------------------------------------------
+  /// @name Properties
+  ///---------------------------------------------------------------------------------------
 
 /** Contains error if there was any, otherwise nil */
-@property(strong, nonatomic) NSError *error;
+@property(strong, nonatomic, nullable) NSError *error;
 
 /** Received JSON message converted to a dictionary */
-@property(strong, nonatomic) NSDictionary *message;
+@property(strong, nonatomic, nullable) NSDictionary *message;
 
 /** Received JSON message as a raw string */
-@property(strong, nonatomic) NSString *rawJSON;
+@property(strong, nonatomic, nullable) NSString *rawJSON;
 
-///---------------------------------------------------------------------------------------
-/// @name Public methods
-///---------------------------------------------------------------------------------------
+  ///---------------------------------------------------------------------------------------
+  /// @name Public methods
+  ///---------------------------------------------------------------------------------------
 
 /** Initializes SPiD response with the received message
-
+ 
  @param data Data received from SPiD
  @return SPiDAccessToken
  */
-- (id)initWithJSONData:(NSData *)data;
+- (instancetype)initWithJSONData:(NSData *)data;
 
 /** Initializes SPiD response with a error
-
+ 
  @param error The received error
  @return SPiDAccessToken
  */
-- (id)initWithError:(NSError *)error;
+- (instancetype)initWithError:(NSError *)error;
 
 @end

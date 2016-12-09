@@ -137,7 +137,7 @@ static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
 
  @return Returns singleton instance
  */
-+ (SPiDClient *)sharedInstance;
++ (SPiDClient * _Nonnull)sharedInstance;
 
 /** Configures the `SPiDClient` and creates a singleton instance
 
@@ -155,27 +155,27 @@ static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
 
  @param completionHandler Called on login completion or error
 */
-- (void)browserRedirectAuthorizationWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED;
+- (void)browserRedirectAuthorizationWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED __TVOS_PROHIBITED;
 
 /** Redirects to safari for signup
 
  @param completionHandler Called on signup completion or error
 */
-- (void)browserRedirectSignupWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED;
+- (void)browserRedirectSignupWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED __TVOS_PROHIBITED;
 
-- (void)browserRedirectForgotPasswordWithCompletionHandler:(void (^)(NSError *response))completionHandler __WATCHOS_PROHIBITED;
-
-/** Redirects to safari for forgot password */
-- (void)browserRedirectForgotPassword __WATCHOS_PROHIBITED;
+- (void)browserRedirectForgotPasswordWithCompletionHandler:(void (^)(NSError *response))completionHandler __WATCHOS_PROHIBITED __TVOS_PROHIBITED;
 
 /** Redirects to safari for forgot password */
-- (void)browserRedirectAccountSummary __WATCHOS_PROHIBITED;
+- (void)browserRedirectForgotPassword __WATCHOS_PROHIBITED __TVOS_PROHIBITED;
+
+/** Redirects to safari for forgot password */
+- (void)browserRedirectAccountSummary __WATCHOS_PROHIBITED __TVOS_PROHIBITED;
 
 /** Redirects to safari for logout
 
  @param completionHandler Called on logout completion or error
 */
-- (void)browserRedirectLogoutWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED; // TODO: Should not care about errors...
+- (void)browserRedirectLogoutWithCompletionHandler:(void (^)(NSError *))completionHandler __WATCHOS_PROHIBITED __TVOS_PROHIBITED; // TODO: Should not care about errors...
 
 /** Handles URL redirects to the app with completion handler
  
@@ -183,7 +183,7 @@ static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
  @param completionHandler Called on successful login/logout or error
  @return Returns YES if URL was handled by `SPiDClient`
  */
-- (BOOL)handleOpenURL:(NSURL *)url completionHandler:(void (^)(NSError *response))completionHandler;
+- (BOOL)handleOpenURL:(NSURL *)url completionHandler:(void (^)(NSError * _Nullable response))completionHandler;
 
 /** Handles URL redirects to the app
 
@@ -202,7 +202,7 @@ static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
  @param completionHandler Called on logout completion or error
  @see isAuthorized
  */
-- (SPiDRequest *)logoutRequestWithCompletionHandler:(void (^)(NSError *response))completionHandler;
+- (SPiDRequest *)logoutRequestWithCompletionHandler:(void (^)(NSError * _Nullable response))completionHandler;
 
 /** Tries to refresh access token and rerun waiting requests
 
