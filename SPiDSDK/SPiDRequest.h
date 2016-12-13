@@ -17,9 +17,9 @@
 
 @interface SPiDRequest : NSObject
 
-@property (nonatomic, strong, readonly) NSURL *URL;
-@property (nonatomic, strong, readonly) NSString *HTTPMethod;
-@property (nonatomic, strong, readonly) NSString *HTTPBody;
+@property (nonatomic, strong, readonly, nullable) NSURL *URL;
+@property (nonatomic, strong, readonly, nullable) NSString *HTTPMethod;
+@property (nonatomic, strong, readonly, nullable) NSString *HTTPBody;
 @property (nonatomic) NSInteger retryCount;
 
   ///---------------------------------------------------------------------------------------
@@ -32,8 +32,8 @@
  @param completionHandler Completion handler run after request is finished, will be called on the main thread.
  @return `SPiDRequest`
  */
-+ (instancetype)apiGetRequestWithPath:(NSString *)requestPath
-                    completionHandler:(void (^)(SPiDResponse *response))completionHandler;
++ (instancetype)apiGetRequestWithPath:(NSString * _Nonnull)requestPath
+                    completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Creates a POST `SPiDRequest`
  
@@ -42,9 +42,9 @@
  @param completionHandler Completion handler run after request is finished, will be called on the main thread.
  @return `SPiDRequest`
  */
-+ (instancetype)apiPostRequestWithPath:(NSString *)requestPath
-                                  body:(NSDictionary *)body
-                     completionHandler:(void (^)(SPiDResponse *response))completionHandler;
++ (instancetype)apiPostRequestWithPath:(NSString * _Nonnull)requestPath
+                                  body:(NSDictionary * _Nullable)body
+                     completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Creates a `SPiDRequest`
  
@@ -54,10 +54,10 @@
  @param completionHandler Completion handler run after request is finished, will be called on the main thread.
  @return `SPiDRequest`
  */
-+ (instancetype)requestWithPath:(NSString *)requestPath
-                         method:(NSString *)method
-                           body:(NSDictionary *)body
-              completionHandler:(void (^)(SPiDResponse *response))completionHandler;
++ (instancetype)requestWithPath:(NSString * _Nonnull)requestPath
+                         method:(NSString * _Nonnull)method
+                           body:(NSDictionary * _Nullable)body
+              completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Runs the request with the current access token */
 - (void)startRequestWithAccessToken; //TODO rename
