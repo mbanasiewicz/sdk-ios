@@ -17,8 +17,13 @@
 
 static NSString *const defaultAPIVersionSPiD = @"2";
 static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
-
+#define SPiDDebugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 // debug print used by SPiDSDK
+//#ifdef DEBUG
+//
+//#else
+//#   define SPiDDebugLog(...)
+//#endif
 
 /**
  The main SDK class, all interaction with SPiD goes through this class
