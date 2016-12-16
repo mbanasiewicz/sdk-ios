@@ -33,7 +33,7 @@
  @return `SPiDRequest`
  */
 + (instancetype)apiGetRequestWithPath:(NSString * _Nonnull)requestPath
-                    completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
+                    completionHandler:(void (^ _Nullable)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Creates a POST `SPiDRequest`
  
@@ -44,7 +44,7 @@
  */
 + (instancetype)apiPostRequestWithPath:(NSString * _Nonnull)requestPath
                                   body:(NSDictionary * _Nullable)body
-                     completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
+                     completionHandler:(void (^ _Nullable)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Creates a `SPiDRequest`
  
@@ -57,7 +57,7 @@
 + (instancetype)requestWithPath:(NSString * _Nonnull)requestPath
                          method:(NSString * _Nonnull)method
                            body:(NSDictionary * _Nullable)body
-              completionHandler:(void (^ _Nonnull)(SPiDResponse * _Nullable response))completionHandler;
+              completionHandler:(void (^ _Nullable)(SPiDResponse * _Nullable response))completionHandler;
 
 /** Runs the request with the current access token */
 - (void)startRequestWithAccessToken; //TODO rename

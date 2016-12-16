@@ -250,13 +250,13 @@ static NSString *const AccessTokenKeychainIdentification = @"AccessToken";
 
  @return Returns the date when the access token expires
  */
-- (NSDate *)tokenExpiresAt;
+- (NSDate * _Nullable)tokenExpiresAt;
 
 /** Returns the user ID for the current user
 
  @return Returns user ID
  */
-- (NSString *)currentUserID;
+- (NSString * _Nullable)currentUserID;
 
 /** Returns YES if `SPiDClient` has a access token
 

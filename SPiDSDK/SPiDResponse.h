@@ -39,13 +39,13 @@
  @param data Data received from SPiD
  @return SPiDAccessToken
  */
-- (instancetype)initWithJSONData:(NSData *)data;
+- (instancetype _Nonnull)initWithJSONData:(NSData * _Nonnull)data;
 
 /** Initializes SPiD response with a error
  
  @param error The received error
  @return SPiDAccessToken
  */
-- (instancetype)initWithError:(NSError *)error;
+- (instancetype _Nonnull)initWithError:(NSError * _Nonnull)error;
 
 @end
